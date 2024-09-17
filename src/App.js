@@ -61,6 +61,17 @@ export default function App() {
         <NumResults movies={movies} />
       </NavBar>
       <Main>
+        {/* abaixo casos que podem ser usados em algumas bibliotecas, como React Router, descomentar linhas 139 pra funfa  */}
+        {/* <Box element={<MovieList movies={movies} />} />
+        <Box
+          element={
+            <>
+              <WatchedSummary watched={watched} />
+              <WatchedMoviesList watched={watched} />
+            </>
+          }
+        /> */}
+
         <Box>
           <MovieList movies={movies} />
         </Box>
@@ -116,7 +127,7 @@ function Main({ children }) {
   return <main className="main">{children}</main>;
 }
 
-function Box({ children }) {
+function Box({ children, element }) {
   const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="box">
@@ -124,6 +135,8 @@ function Box({ children }) {
         {isOpen ? "–" : "+"}
       </button>
       {isOpen && children}
+      {/* abaixo casos que podem ser usados em algumas bibliotecas, como React Router  descomentar linha 65 pra funfa */}
+      {/* {isOpen && element} */}
     </div>
   );
 }
