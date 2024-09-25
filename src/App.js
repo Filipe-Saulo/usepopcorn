@@ -319,7 +319,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     onAddWatched(newWatchedMovie);
     onCloseMovie();
   }
-
+  //pega os detalhes dos filmes de acordo com o id selecionado
   useEffect(
     function () {
       async function getMovieDetails() {
@@ -334,6 +334,19 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       getMovieDetails();
     },
     [selectedId]
+  );
+  // altera o nome da aba de acordo com o filme
+  useEffect(
+    function () {
+      if (!title) return;
+      document.title = `Movie | ${title}`;
+
+      //funcao de limpeza
+      return function () {
+        document.title = "usePopCorn";
+      };
+    },
+    [title]
   );
 
   return (
