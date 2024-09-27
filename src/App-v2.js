@@ -6,6 +6,7 @@ const average = (arr) =>
 
 const KEY = "f84fc31d";
 //problemas na KEY da api free, talvez nao funcione testar https://www.omdbapi.com/?apikey=4a158e01&s=interstellar
+console.log();
 
 export default function App() {
   const [query, setQuery] = useState("");
